@@ -17,9 +17,7 @@ class App extends Component {
 
   formSubmit = (contact) => {
     const inputId = nanoid();
-    if (
-      this.state.contacts.some((el) => el.name.toLowerCase() === contact.name)
-    ) {
+    if (this.state.contacts.some((el) => el.name === contact.name)) {
       alert(contact.name + " is already in contacts :)");
       return;
     }
@@ -44,6 +42,7 @@ class App extends Component {
     const filteredContacts = contacts.filter((contact) =>
       contact.name.includes(filter)
     );
+    console.log(filteredContacts);
     return (
       <div>
         <h1>Phonebook</h1>
